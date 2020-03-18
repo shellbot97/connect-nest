@@ -89,29 +89,18 @@ python manage.py runserver
 ```
 this will start the dev server on ```127.0.0.1:8000```, where you will see the django-introduction page. 
 
-### Database connections
-Go to ```mis/mis/settings.py```
-```sh
-from dotenv import load_dotenv
-from os.path import join, dirname
-# Create .env file path.
-dotenv_path = join(dirname(__file__), 'dev.env')
-# Load file from the path.
-load_dotenv(dotenv_path)
-# get the secret key from env file
-SECRET_KEY = os.getenv('SECRET_KEY')
-# get the database variables from env file
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),  
-        'PORT': os.getenv('DB_PORT'),
-    }
-}
-```
+### Environment variables
+| variable | use |
+| ------ | ------ |
+| SECRET_KEY | ```settings.py``` |
+| DEBUG_STATUS | ```settings.py``` |
+| DB_NAME | ```settings.py``` |
+| DB_USER | ```settings.py``` |
+| DB_PASSWORD | ```settings.py``` |
+| DB_HOST | ```settings.py``` |
+| DB_PORT | ```settings.py``` |
+
+
 ### Database
 Migrations are Django’s way of propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema. They’re designed to be mostly automatic, but you’ll need to know when to make migrations, when to run them, and the common problems you might run into.
 
@@ -120,11 +109,9 @@ what migrations will do is,
 2. within these installed apps directory it will go to models and create schema for whatever class you have specified.
 
 ```
-cd mis
+cd connectnest
 # responsible for applying and unapplying migrations.
 python manage.py makemigrations
-# creating new migrations based on the changes you have made to your models.
-python manage.py migrate --fake loan_insight
 
 ```
 
