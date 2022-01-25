@@ -1,6 +1,10 @@
 
 # ConnectNest
 
+---
+
+- connect univerity/college aspirant with top students already studying in their desired institution.  
+
 ### Build Status - 
 | Branch | Status |
 | ------ | ------ |
